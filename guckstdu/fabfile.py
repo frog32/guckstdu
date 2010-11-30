@@ -7,7 +7,7 @@ from fabric.decorators import hosts
 
 env.project = 'guckstdu'
 env.project_python = 'guckstdu'
-env.repository = 'git@github.com:frog32/guckstdu.git'
+env.repository = 'git://github.com/frog32/guckstdu.git'
 
 
 def _setup_path():

@@ -96,3 +96,7 @@ INSTALLED_APPS = (
     'guckstdu',
     'south',
 )
+
+ACCOUNT_ACTIVATION_DAYS = 14
+
+LOGIN_REDIRECT_URL = '/'

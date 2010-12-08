@@ -4,6 +4,7 @@
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <title>{% block title %}guckstdu{% endblock %}</title>
+        {% block extra_head %}{% endblock %}
     </head>
     <body>
         <div id="nav">
@@ -12,9 +13,8 @@
             </ul>
         </div>
         <div id="content">
-            {% block content %}
-                
-            {% endblock %}
+            {% block main_content %}{% endblock %}
+            {% block extra_body %}{% endblock %}
         </div>
     </body>
 </html>

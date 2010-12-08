@@ -10,6 +10,7 @@
     <p>Das ist die Guckstdu startseite.</p>
     {% if user %}
         <p>Hello {{user}}</p>
+        <p><a href="{% url auth_logout %}">Logout!</a></p>
     {% else %}
         <p>Huh??</p>
     {% endif %}

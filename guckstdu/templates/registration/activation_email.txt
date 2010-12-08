@@ -1,0 +1,7 @@
+Welcome to GuckstDu!
+
+GuckstDu hier:
+    http://localhost:8000/accounts/activate/{{ activation_key }}/
+
+Thanks,
+    Sponge Robert Square Pantaloons

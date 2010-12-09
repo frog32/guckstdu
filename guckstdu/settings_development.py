@@ -97,6 +97,8 @@ INSTALLED_APPS = (
     'south',
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 ACCOUNT_ACTIVATION_DAYS = 14
 
 LOGIN_REDIRECT_URL = '/'

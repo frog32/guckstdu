@@ -1,0 +1,56 @@
+#mainContainer {
+	margin-top: 25px;
+	padding-left : 50px;
+	padding-right: 50px;	
+}
+
+body {
+	background-color:white;
+	background-image:url('../pics/gradientWhite.jpg');
+	background-position: bottom;
+	background-repeat: repeat-x;
+	
+} 
+
+div {
+	/*background-color : #E7E2F5;*/
+	/*background-color: #E2F0DB;*/
+	background-color:white;
+	font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	font: #666666;
+ 
+}
+
+#header{
+   font-size: 1.75em;
+	letter-spacing: .2em;
+}
+
+#subheader{
+	font-family: "Lucida Grande", Tahoma;
+	font-size: 10px;
+	font-weight: lighter;
+	font-variant: normal;
+	color: #666666;
+	letter-spacing: 0.3em;
+}
+
+#mainASidebar{
+	height:450px;
+}
+
+#main{
+	padding-top: 15px;
+}
+
+#mwTable{
+	font-size:120%;
+	margin-top: 20px;
+}
+
+/*for jquery use in table*/
+/*p.slideSh1, p.panelSh1,p.slideSh2, p.panelSh2,p.slideSh3, p.panelSh3,p.slideSh4, p.panelSh4,p.slideSh5, p.panelSh5*/
+p.panel1,p.panel2,p.panel3,p.panel4,p.panel5{
+	display:none;
+}

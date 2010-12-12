@@ -1,0 +1,79 @@
+<html>
+<head>
+
+<script type="text/javascript" src="jquery/jquery.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+$(".flip").click(function(){
+    $(".panel").slideToggle("slow");
+  });
+});
+</script>
+
+<script type="text/javascript"> 
+$(document).ready(function(){
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("slow");
+  });
+});
+</script>
+ 
+<style type="text/css"> 
+div.panel,p.flip, div.panel1,p.flip1
+{
+margin:0px;
+padding:5px;
+
+}
+
+div.panel,div.panel1
+{
+height:120px;
+display:none;
+}
+
+p.panel{
+	display:none;
+}
+</style>
+</head>
+ 
+<body>
+
+
+		<p class="panel">just a test</p>
+ 		<table id="mwTable">
+		<tr>
+			<th>Show</th>
+		</tr>
+		<tr>
+			<td>
+				<p class="flip">1. The Shield</p>
+				<p class="panel">Description Series</p>
+
+		</td>
+		</tr>
+		<tr>
+			<td>			
+				<p class="flip1">2. House</p>
+				<div class="panel1">
+				<p>Description Series</p>
+				</div>
+		</td>
+		</tr>
+		<tr>
+			<td>How I Banged Your Mother</td>
+		</tr>
+		<tr>
+			<td>The Big Bang Theory</td>
+		</tr>
+		<tr>
+			<td>South Park</td>
+		</tr>
+	</table>
+ 
+</body>
+</html>
+
+
+

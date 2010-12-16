@@ -95,6 +95,7 @@ INSTALLED_APPS = (
     'registration',
     'guckstdu',
     'south',
+    'series',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 14

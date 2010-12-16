@@ -95,6 +95,7 @@ INSTALLED_APPS = (
     'registration',
     'guckstdu',
     'south',
+    'series',
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block page_title %}Most watched series{% endblock %}
+{% block extra_head %}
+    <script type="text/javascript"> 
+	$(document).ready(function(){
+    	$(".entry").click(function(){
+    		$(this).find('.description').slideToggle("slow");
+    	});
+	});
+	</script>
+	
+{% endblock %}
+{% block main_content %}
+	<table id="mwTable">
+	<colgroup>
+	    <col width="20" />
+	    <col />
+    </colgroup>
+	<tr>
+		<th></th>
+		<th>Show</th>
+	</tr>
+	{% for s in series %}
+    	<tr>
+    		<td>{{forloop.counter}}. </td>
+    		<td class="entry">
+    			<p class="name">{{s.name}}</p>
+    			<p class="description">{{s.description}}</p>
+    		</td>
+    	</tr>	   
+	{% endfor %}
+</table>{% endblock %}
+

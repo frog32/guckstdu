@@ -1,20 +1,61 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <title>{% block title %}guckstdu{% endblock %}</title>
-        {% block extra_head %}{% endblock %}
-    </head>
-    <body>
-        <div id="nav">
-            <ul>
-                <li><a href="{% url start %}">Home</a></li>
-            </ul>
-        </div>
-        <div id="content">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <title>{% block title %}Guckst Du{% endblock %}</title>
+<!-- Framework CSS -->
+	<link rel="stylesheet" href="/media/stylesheets/screen.css" type="text/css" media="screen,projection" />
+	<link rel="stylesheet" href="/media/stylesheets/print.css" type="text/css" media="print" />  
+	<!--[if IE]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+
+<!-- Custom GuckstDu CSS -->
+	<link rel="stylesheet" href="/media/stylesheets/custom.css" type="text/css" media="screen,projection" />
+
+<!-- JQuery.. Just playing around-->
+	<script type="text/javascript" src="/media/javascript/jquery.js"></script>
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="container" id="mainContainer">
+
+	
+	<div id="header" class="span-18">
+	<h1 style="margin-left:90px">Guckst Du!</h1>
+
+	</div>
+	
+	<div id="login" class="span-6 last">
+		<h1 style="margin-top:70px">{% block page_title %}Default{% endblock %}</h1>
+    </div>
+	
+	<hr />
+	<div id="subheader" class="span-24 last">
+		<h3 class="prepend-1">Share series with your friends... Approved by Gauss</h3>
+    </div>
+	
+	<div id="mainASidebar" class="span-24 last">
+		<div id="main" class="span-17 colborder">
             {% block main_content %}{% endblock %}
-            {% block extra_body %}{% endblock %}
-        </div>
-    </body>
+	    </div>
+		<div id="sidebar" class="span-6 last">
+			<h3>Sidebar</h3>
+		    {% block navigation %}
+		    <ul>
+		        <li><a href="{% url start %}">Home</a></li>
+		        <li><a href="{% url top_series %}">Top Series</a></li>
+		        <li><a href="#">dritter Link</a></li>
+		    </ul>
+		    {% endblock %}
+		</div>
+	</div>
+</div>
+
+{% block extra_body %}{% endblock %}
+</body>
+
 </html>

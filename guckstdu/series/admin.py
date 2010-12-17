@@ -1,4 +1,4 @@
-from series.models import Series, Season, Episode
+from series.models import Series, Season, Episode, Station, Runtime
 
 from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
@@ -28,7 +28,10 @@ class SeriesAdmin(admin.ModelAdmin):
                             url(r'^(.+)/season/',include(season_admin.urls)),
                         )
         return extra_urlpatterns + urlpatterns
-    
+
+class EpisodeAdmin(admin.ModelAdmin):
+    pass
     
 admin.site.register(Series, SeriesAdmin)
 admin.site.register(Season, SeasonAdmin)
+admin.site.register(Episode, EpisodeAdmin)

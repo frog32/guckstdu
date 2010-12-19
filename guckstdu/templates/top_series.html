@@ -27,7 +27,8 @@
     			<p class="name">{{s.name}}</p>
     			<p class="description">{{s.description}}</p>
     		</td>
-    	</tr>	   
+            <td><a href="{% url series_details %}?series={{ s.id }}">details</a></td>
+    	</tr>
 	{% endfor %}
 </table>{% endblock %}
 

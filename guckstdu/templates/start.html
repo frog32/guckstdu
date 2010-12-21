@@ -1,10 +1,43 @@
 {% extends "base.html" %}
 {% block page_title %}Start{% endblock %}
 {% block main_content %}
-    {% if user %}
-        <p>Hello {{user}}</p>
-        <p><a href="{% url auth_logout %}">Logout!</a></p>
-    {% else %}
-        <p>Huh??</p>
-    {% endif %}
-{% endblock %}
+<h1>Most Watched Series</h1>
+	<table id="mwTable">
+	<colgroup>
+	    <col width="20" />
+	    <col />
+    </colgroup>
+	<tr>
+		<th></th>
+		<th>Show</th>
+	</tr>
+	{% for s in series %}
+    	<tr>
+    		<td>{{forloop.counter}}. </td>
+    		<td>{{s.name}}</td>
+            <td><a href="{% url series_details %}?series={{ s.id }}">details</a></td>
+    	</tr>
+	{% endfor %}
+	</table>
+{% endblock main_content%}
+{% block rec1%}
+	<div id="rec1" class="span-15 last box">
+	<h2>Recommandation</h2>
+	{% for s in rec %}
+	<table>
+	<tr>
+		<td><h3>{{s.name}}</h3></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>{{s.description}}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><a href="{% url series_details %}?series={{ s.id }}">Details</a></td>
+		<td></td>
+	</tr>
+	</table>
+{% endfor %}
+	</div>
+{% endblock rec1%}

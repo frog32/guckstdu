@@ -41,14 +41,15 @@
 	<div id="mainASidebar" class="span-24 last">
 		<div id="main" class="span-17 colborder">
             {% block main_content %}{% endblock %}
+			
+			{% block rec1%}{% endblock rec1%}
 	    </div>
-		<div id="sidebar" class="span-6 last">
 			<h3>Sidebar</h3>
 		    {% block navigation %}
 		    <ul>
 		        <li><a href="{% url start %}">Home</a></li>
 		        <li><a href="{% url top_series %}">Top Series</a></li>
-		        <li><a href="#">dritter Link</a></li>
+		        <li><a href="#">Dritter Link</a></li>
 		    </ul>
 		    {% endblock %}
 		</div>

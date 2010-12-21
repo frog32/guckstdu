@@ -4,6 +4,38 @@ from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 
 class EpisodeInline(admin.TabularInline):
+	model = Episode
+	extra = 3
+	
+class SeasonAdmin(admin.ModelAdmin):
+	inlines = [EpisodeInline]	
+
+class SeasonInline(admin.TabularInline):
+	model = Season
+	
+class SeriesAdmin(admin.ModelAdmin):
+	fieldsets = [
+	(None,				{'fields':['name']}),
+		('Description',	{'fields':['description'],'classes':['collapse']}),
+	]
+
+	inlines = [SeasonInline]
+	
+	search_fields = ['name']
+
+class RuntimeInline(admin.TabularInline):
+	model = Runtime
+	
+class EpisodeAdmin(admin.ModelAdmin):
+	inlines = [RuntimeInline]
+	
+admin.site.register(Series,SeriesAdmin)
+admin.site.register(Season,SeasonAdmin)
+admin.site.register(Episode,EpisodeAdmin)
+admin.site.register(Station)
+
+"""
+class EpisodeInline(admin.TabularInline):
     model = Episode
     extra = 0
 
@@ -35,3 +67,4 @@ class EpisodeAdmin(admin.ModelAdmin):
 admin.site.register(Series, SeriesAdmin)
 admin.site.register(Season, SeasonAdmin)
 admin.site.register(Episode, EpisodeAdmin)
+"""

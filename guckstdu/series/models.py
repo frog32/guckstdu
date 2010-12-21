@@ -3,7 +3,7 @@ from django.db import models
 class Series(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    
+	
     class Meta:
         verbose_name = "Serie"
         verbose_name_plural = "Serien"
@@ -28,23 +28,38 @@ class Season(models.Model):
     episode_count.description = "Anzahl Episoden"
         
 class Episode(models.Model):
-    season = models.ForeignKey(Season, related_name="episodes")
-    number = models.IntegerField()
-    name = models.CharField(max_length=100)
-    duration = models.IntegerField()
-    
-    class Meta:
-        verbose_name = "Episode"
-        verbose_name_plural = "Episoden"
-    
-    def __unicode__(self):
-        return '%s Episode %d' % (self.season.__unicode__(), self.number)
+	season = models.ForeignKey(Season, related_name="episodes")
+	number = models.IntegerField()
+	name = models.CharField(max_length=100)
+	duration = models.IntegerField()
+	
+	class Meta:
+		verbose_name = "Episode"
+		verbose_name_plural = "Episoden"
+		
+	def __unicode__(self):
+		return '%s Episode %d' % (self.season.__unicode__(), self.number)
         
 class Station(models.Model):
-    name = models.CharField(max_length=100)
-
+	name = models.CharField(max_length=100)
+	
+	class Meta:
+		verbose_name = "Sender"
+		verbose_name_plural = "Sender"
+	
+	def __unicode__(self):
+		return self.name
+		
 class Runtime(models.Model):
-    episode = models.ForeignKey(Episode, related_name="runtimes")
-    language = models.CharField(max_length=5)
-    station = models.ForeignKey(Station, related_name="program")
-    datetime = models.DateTimeField()
+	episode = models.ForeignKey(Episode, related_name="runtimes")
+	language = models.CharField(max_length=5)
+	station = models.ForeignKey(Station, related_name="program")
+	datetime = models.DateTimeField()
+	
+	class Meta:
+		verbose_name = "Sendezeit"
+		verbose_name_plural = "Sendezeiten"
+		
+	def __unicode__(self):
+		return self.episode.season.series.name + ' s' + str(self.episode.season.number) + 'e' + str(self.episode.number)
+	

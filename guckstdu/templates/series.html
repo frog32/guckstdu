@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block page_title %}{{ series.name }}{% endblock %}
+{% block extra_head %}
+    <script type="text/javascript">
+	$(document).ready(function(){
+    	$(".entry").click(function(){
+    		$(this).find('.description').slideToggle("slow");
+    	});
+	});
+	</script>
+
+{% endblock %}
+{% block main_content %}
+    <p>
+        <h3>
+            Description
+        </h3>
+        <br>
+        {{ series.description }}
+    </p>
+	<table id="mwTable">
+	<colgroup>
+	    <col width="20" />
+	    <col />
+    </colgroup>
+	<tr>
+		<th></th>
+		<th>Seasons</th>
+	</tr>
+	{% for s in seasons %}
+    	<tr>
+    		<td>{{forloop.counter}}. </td>
+    		<td class="entry">
+    			<p class="name">{{s.name}}</p>
+    		</td>
+            <td><a href="{% url season_details %}?season={{ s.id }}">details</a></td>
+    	</tr>
+	{% endfor %}
+</table>{% endblock %}
+

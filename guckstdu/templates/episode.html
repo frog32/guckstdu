@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block page_title %}{{ episode.season.series.name }}{% endblock %}
+{% block extra_head %}
+    <script type="text/javascript">
+	$(document).ready(function(){
+    	$(".entry").click(function(){
+    		$(this).find('.description').slideToggle("slow");
+    	});
+	});
+	</script>
+
+{% endblock %}
+{% block main_content %}
+    <p>
+        <h2>
+            {{ episode.season.name }} - {{ episode.name }}
+        </h2>
+    </p>
+{% endblock %}
+

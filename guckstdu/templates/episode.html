@@ -12,9 +12,27 @@
 {% endblock %}
 {% block main_content %}
     <p>
+        <form method="POST" action="{% url series_details %}" name="series-{{ episode.season.series.id }}">{% csrf_token %}
+            <input type="submit" name="send" class="link" value="{{ episode.season.series.name }}" />
+            <input type="hidden" name="series" value="{{ episode.season.series.id }}"/>
+        </form>
+        >>
+        <form method="POST" action="{% url season_details %}" name="season-{{ episode.season.id }}">{% csrf_token %}
+            <input type="submit" name="send" class="link" value="{{ episode.season.name }}" />
+            <input type="hidden" name="season" value="{{ episode.season.id }}"/>
+        </form>
+    </p>
+    <p>
         <h2>
             {{ episode.season.name }} - {{ episode.name }}
         </h2>
+    </p>
+    <p>
+        <h3>
+            Description
+        </h3>
+        <br>
+        {{ episode.description }}
     </p>
 {% endblock %}
 

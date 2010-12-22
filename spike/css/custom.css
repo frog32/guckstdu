@@ -52,6 +52,11 @@ div {
 	margin-top: 20px;
 }
 
+#rec1 {
+	margin-top: 75px;
+	background-color:red;
+}
+
 /*for jquery use in table*/
 /*p.slideSh1, p.panelSh1,p.slideSh2, p.panelSh2,p.slideSh3, p.panelSh3,p.slideSh4, p.panelSh4,p.slideSh5, p.panelSh5*/
 p.panel1,p.panel2,p.panel3,p.panel4,p.panel5{

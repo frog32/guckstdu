@@ -4,12 +4,12 @@
 	padding-right: 50px;	
 }
 
-html,body {
+body {
 	background-color:white;
 	background-image:url('/media/images/gradientWhite.jpg');
 	background-position: bottom;
 	background-repeat: repeat-x;
-} 
+}
 
 div {
 	/*background-color : #E7E2F5;*/
@@ -41,6 +41,7 @@ div {
 
 #mainASidebar{
 	height:550px;
+	padding-bottom: 100px;
 }
 
 #main{
@@ -97,4 +98,8 @@ cursor:pointer;
 
 p.flip1,p.flip2,p.flip3,p.flip4,p.flip5{
 	height:0px;
+}
+
+#rec1 {
+	margin-top: 75px;
 }

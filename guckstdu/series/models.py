@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class Series(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    fans = models.ManyToManyField(User, related_name = 'favourite_series', blank=True)
 	
     class Meta:
         verbose_name = "Serie"
@@ -11,6 +12,7 @@ class Series(models.Model):
     
     def __unicode__(self):
         return self.name
+
         
 class Season(models.Model):
     series = models.ForeignKey(Series, related_name="seasons")
@@ -24,8 +26,6 @@ class Season(models.Model):
     def __unicode__(self):
         return '%s Staffel %d' % (self.series.name, self.number)
 
-	fans = models.ManyToManyField(User, related_name = 'favourite_series', blank=True)
-    
     def episode_count(self):
         return self.episodes.count()
     episode_count.description = "Anzahl Episoden"

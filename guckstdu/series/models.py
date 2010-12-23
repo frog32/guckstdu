@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Series(models.Model):
     name = models.CharField(max_length=100)
@@ -22,6 +23,8 @@ class Season(models.Model):
     
     def __unicode__(self):
         return '%s Staffel %d' % (self.series.name, self.number)
+
+	fans = models.ManyToManyField(User, related_name = 'favourite_series', blank=True)
     
     def episode_count(self):
         return self.episodes.count()

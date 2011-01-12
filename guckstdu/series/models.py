@@ -1,10 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class SeriesManager(models.Manager):
+    """
+    Manager for the series model
+    """
+    def top_10(self):
+        return self.annotate(models.Count('fans')).order_by('-fans__count')
+
 class Series(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     fans = models.ManyToManyField(User, related_name = 'favourite_series', blank=True)
+	
+    objects = SeriesManager()
 	
     class Meta:
         verbose_name = "Serie"

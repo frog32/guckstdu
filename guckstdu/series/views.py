@@ -7,7 +7,7 @@ from guckstdu.series.models import Season, Episode
 @login_required
 @csrf_exempt
 def top_series(request):
-    return render_to_response('top_series.html', {'series':Series.objects.all()})
+    return render_to_response('top_series.html', {'series':Series.objects.top_10()})
 
 @login_required
 @csrf_exempt

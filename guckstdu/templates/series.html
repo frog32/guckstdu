@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block page_title %}{{ series.name }}{% endblock %}
+{% block extra_head %}
+    <script type="text/javascript">
+	$(document).ready(function(){
+    	$(".entry").click(function(){
+    		$(this).find('.description').slideToggle("slow");
+    		$(this).find('.episode').slideToggle("slow");
+    	});
+	});
+	</script>
+
+{% endblock %}
+{% block main_content %}
+    <p>
+        <h3>
+            Description
+        </h3>
+        <br>
+        {{ series.description }}
+    </p>
+	<table id="mwTable">
+	<colgroup>
+	    <col width="20" />
+	    <col />
+    </colgroup>
+	<tr>
+		<th></th>
+		<th>Seasons</th>
+	</tr>
+	{% for s in seasons %}
+    	<tr>
+    		<td style="vertical-align:top">{{forloop.counter}}. </td>
+    		<td class="entry">
+    			<p class="name">{{s.name}}</p>
+                <p class="description">{{ s.description }}</p>
+                {% if s.episodes.all %}
+                    <p class="episode">Episodes:</p>
+                {% endif %}
+                {% for e in s.episodes.all %}
+                    <form method="POST" action="{% url episode_details %}" name="episode-{{ e.id }}">{% csrf_token %}
+                        <p class="episode">
+                            &nbsp;<input type="submit" name="send" class="link" value="{{ e.name }}"/>
+                            <input type="hidden" name="episode" value="{{ e.id }}"/>
+                        </p>
+                    </form>
+                {% endfor %}
+    		</td>
+            <td style="text-align:right;vertical-align:top">
+                <form method="POST" action="{% url season_details %}" name="season-{{ s.id }}">{% csrf_token %}
+                    <input type="submit" name="send" class="link" value="details" />
+                    <input type="hidden" name="season" value="{{ s.id }}"/>
+                </form>
+            </td>
+    	</tr>
+	{% endfor %}
+</table>{% endblock %}
+

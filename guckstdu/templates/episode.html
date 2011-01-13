@@ -34,5 +34,14 @@
         <br>
         {{ episode.description }}
     </p>
+    <p>
+        <h3>
+            Dates
+        </h3>
+        <br>
+        {% for r in episode.runtimes.all %}
+            <p>{{ r.station.name }} - {{ r.datetime }} - {{ r.language }}</p>
+        {% endfor %}
+    </p>
 {% endblock %}
 
